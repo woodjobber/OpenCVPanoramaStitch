@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
 
 class SwViewController: UIViewController, UIScrollViewDelegate {
+
     
     @IBOutlet var spinner:UIActivityIndicatorView!
     @IBOutlet var imageView:UIImageView?
@@ -30,6 +33,7 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
 
     }
 
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.spinner.startAnimating()
@@ -49,15 +53,16 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     
     func stitched() async throws -> UIImage {
         guard
-            let image1 = UIImage(named:"pano_19_16_mid.jpg"),
-            let image2 = UIImage(named:"pano_19_20_mid.jpg"),
-            let image3 = UIImage(named:"pano_19_22_mid.jpg"),
-            let image4 = UIImage(named:"pano_19_25_mid.jpg")
+            let image1 = UIImage(named:"a.jpg"),
+            let image2 = UIImage(named:"b.jpg"),
+            let image3 = UIImage(named:"c.jpg"),
+            let image4 = UIImage(named:"d.jpg"),
+            let image5 = UIImage(named:"d.jpg")
         else {
             let error = NSError.init(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "couldn't create input images"])
             throw error
         }
-        let images:[UIImage] = [image1,image2,image3,image4]
+        let images:[UIImage] = [image1,image2,image3,image4,image5]
         let stitchedImage:UIImage = try CVWrapper.process(with: images)
         return stitchedImage
     }
@@ -72,10 +77,9 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     }
     
    
-    
-    
     func viewForZooming(in scrollView:UIScrollView) -> UIView? {
         return self.imageView!
     }
     
+
 }

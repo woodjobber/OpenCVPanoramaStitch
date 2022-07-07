@@ -10,7 +10,10 @@
 #import "UIImage+OpenCV.h"
 #import "stitching.h"
 #import "UIImage+Rotate.h"
+#import "Cropping.h"
 
+#define HIGHT_COMPRESS_RATIO 0.5
+#define LOW_COMPRAESS_RATIO 1.0
 
 @implementation CVWrapper
 
@@ -39,17 +42,22 @@
             /*
              All images taken with the iPhone/iPa cameras are LANDSCAPE LEFT orientation. The  UIImage imageOrientation flag is an instruction to the OS to transform the image during display only. When we feed images into openCV, they need to be the actual orientation that we expect them to be for stitching. So we rotate the actual pixel matrix here if required.
              */
-            UIImage* rotatedImage = [image rotateToImageOrientation];
+            
+            UIImage* rotatedImage = [[self compressedToRatio:image ratio:HIGHT_COMPRESS_RATIO] rotateToImageOrientation];
             cv::Mat matImage = [rotatedImage CVMat3];
             NSLog (@"matImage: %@",image);
             matImages.push_back(matImage);
         }
     }
-    NSLog (@"stitching...");
+    NSLog(@"stitching...");
     cv::Mat stitchedMat;
+    cv::Mat cropedMat;
     try {
         stitchedMat = stitch (matImages);
-        UIImage* result =  [UIImage imageWithCVMat:stitchedMat];
+        if (![Cropping cropWithMat:stitchedMat andResult:cropedMat]) {
+            return [UIImage imageWithCVMat:cropedMat];
+        }
+        UIImage* result =  [UIImage imageWithCVMat:cropedMat];
         return result;
     } catch (std::invalid_argument& e) {
         if (error) {
@@ -66,5 +74,14 @@
     }
 }
 
-
++ (UIImage *)compressedToRatio:(UIImage *)image ratio: (float)ratio {
+    CGSize compressedSize;
+    compressedSize.width = image.size.width * ratio;
+    compressedSize.height = image.size.height * ratio;
+    UIGraphicsBeginImageContext(compressedSize);
+    [image drawInRect:CGRectMake(0, 0, compressedSize.width, compressedSize.height)];
+    UIImage *compressedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return compressedImage;
+}
 @end
