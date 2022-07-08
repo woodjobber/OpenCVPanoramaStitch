@@ -153,8 +153,9 @@ string result_name = "result.jpg";
 
 void printUsage();
 int parseCmdArgs(int argc, char** argv);
+cv::Mat sphericalStitch(vector<Mat>& images);
 
-cv::Mat stitch (vector<Mat>& images)
+cv::Mat stitch(vector<Mat>& images)
 {
     imgs = images;
     Mat pano;
@@ -214,5 +215,20 @@ cv::Mat fisheyeStitch(vector<Mat>& images) {
       //return 0;
   }
   return pano;
+}
+
+cv::Mat sphericalStitch(vector<Mat>& images) {
+    imgs = images;
+    Mat pano;
+    Ptr<Stitcher> stitcher = Stitcher::create();//4.0
+    Ptr<SphericalWarper> fisheye_warper = makePtr<cv::SphericalWarper>();
+    stitcher->setWarper(fisheye_warper);
+    Stitcher::Status status = stitcher->stitch(imgs, pano);
+    if (status != Stitcher::OK)
+    {
+        cout << "Can't stitch images, error code = " << int(status) << endl;
+        //return 0;
+    }
+    return pano;
 }
 

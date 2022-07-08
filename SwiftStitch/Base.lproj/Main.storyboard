@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,5 +47,43 @@
             </objects>
             <point key="canvasLocation" x="131" y="-6"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="cEu-fj-WZO">
+            <objects>
+                <viewController storyboardIdentifier="SSViewController" id="fmv-sf-T5D" customClass="SSViewController" customModule="SwiftStitch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Rf-E4-Z8R"/>
+                        <viewControllerLayoutGuide type="bottom" id="xPr-KO-Jc2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JmX-p0-t84">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HY-96-Z4L" customClass="CTPanoramaView" customModule="SwiftStitch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7HY-96-Z4L" firstAttribute="leading" secondItem="JmX-p0-t84" secondAttribute="leading" id="GNN-UM-b02"/>
+                            <constraint firstItem="xPr-KO-Jc2" firstAttribute="top" secondItem="7HY-96-Z4L" secondAttribute="bottom" id="Lha-kZ-f1H"/>
+                            <constraint firstItem="7HY-96-Z4L" firstAttribute="top" secondItem="7Rf-E4-Z8R" secondAttribute="bottom" id="eaU-vQ-sX4"/>
+                            <constraint firstAttribute="trailing" secondItem="7HY-96-Z4L" secondAttribute="trailing" id="xVa-uy-zq9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="panoramaView" destination="7HY-96-Z4L" id="iQf-Hq-XVR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNi-Fx-L0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71" y="700"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

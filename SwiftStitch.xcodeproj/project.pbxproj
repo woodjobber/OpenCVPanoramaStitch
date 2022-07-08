@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		611F9A007E2C5BB4D33A4742 /* Pods_SwiftStitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6558368905DF381524A8C2D4 /* Pods_SwiftStitch.framework */; };
+		9AEF117E2877BE9300690764 /* CTPanoramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEF117D2877BE9300690764 /* CTPanoramaView.swift */; };
+		9AEF11802877BE9F00690764 /* CTPieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEF117F2877BE9F00690764 /* CTPieSliceView.swift */; };
+		9AEF11832877BF8300690764 /* SSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEF11812877BF8300690764 /* SSViewController.swift */; };
 		9AFD7C852875344E0020B910 /* Cropping.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AFD7C842875344E0020B910 /* Cropping.mm */; };
 		AB7D8E7A193E928E0059EE63 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB7D8E79193E928E0059EE63 /* UIImage+OpenCV.mm */; };
 		AB7D8E7D193E92B80059EE63 /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB7D8E7C193E92B80059EE63 /* CVWrapper.mm */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		63B033CF6C9AD15D2589B0B8 /* Pods-SwiftStitch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStitch.release.xcconfig"; path = "Target Support Files/Pods-SwiftStitch/Pods-SwiftStitch.release.xcconfig"; sourceTree = "<group>"; };
 		6558368905DF381524A8C2D4 /* Pods_SwiftStitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEF117D2877BE9300690764 /* CTPanoramaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTPanoramaView.swift; sourceTree = "<group>"; };
+		9AEF117F2877BE9F00690764 /* CTPieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTPieSliceView.swift; sourceTree = "<group>"; };
+		9AEF11822877BF8300690764 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Base.lproj/SSViewController.swift; sourceTree = "<group>"; };
 		9AFD7C832875344E0020B910 /* Cropping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cropping.h; sourceTree = "<group>"; };
 		9AFD7C842875344E0020B910 /* Cropping.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Cropping.mm; sourceTree = "<group>"; };
 		AB6D1AEE193F9B6600F8B0F5 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 				AB7D8E77193E928D0059EE63 /* SwiftStitch-Bridging-Header.h */,
 				9AFD7C832875344E0020B910 /* Cropping.h */,
 				9AFD7C842875344E0020B910 /* Cropping.mm */,
+				9AEF117D2877BE9300690764 /* CTPanoramaView.swift */,
+				9AEF117F2877BE9F00690764 /* CTPieSliceView.swift */,
+				9AEF11812877BF8300690764 /* SSViewController.swift */,
 			);
 			path = SwiftStitch;
 			sourceTree = "<group>";
@@ -223,10 +232,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AEF117E2877BE9300690764 /* CTPanoramaView.swift in Sources */,
 				AB896A8A193E8E830018B9EC /* SwViewController.swift in Sources */,
 				AB7D8E80193E92C30059EE63 /* stitching.cpp in Sources */,
 				ABAA668D1BD420BE00BD6A45 /* UIImage+Rotate.m in Sources */,
 				AB7D8E7A193E928E0059EE63 /* UIImage+OpenCV.mm in Sources */,
+				9AEF11802877BE9F00690764 /* CTPieSliceView.swift in Sources */,
+				9AEF11832877BF8300690764 /* SSViewController.swift in Sources */,
 				AB7D8E7D193E92B80059EE63 /* CVWrapper.mm in Sources */,
 				9AFD7C852875344E0020B910 /* Cropping.mm in Sources */,
 				AB896A88193E8E830018B9EC /* AppDelegate.swift in Sources */,
@@ -236,6 +248,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		9AEF11812877BF8300690764 /* SSViewController.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AEF11822877BF8300690764 /* Base */,
+			);
+			name = SSViewController.swift;
+			sourceTree = "<group>";
+		};
 		AB896A8B193E8E830018B9EC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -68,18 +68,23 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func displayImage(image: UIImage) {
-        let imageView:UIImageView = UIImageView.init(image: image)
-        self.imageView = imageView
-        self.scrollView.addSubview(self.imageView!)
-        self.scrollView.contentSize = self.imageView!.bounds.size
-        self.scrollView.contentOffset = CGPoint(x: -(self.scrollView.bounds.size.width - self.imageView!.bounds.size.width)/2.0, y: -(self.scrollView.bounds.size.height - self.imageView!.bounds.size.height)/2.0)
-        NSLog("scrollview \(self.scrollView.contentSize)")
+        
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SSViewController") as! SSViewController
+        vc.image = image
+        present(vc, animated: true, completion: nil)
+        
+//        let imageView:UIImageView = UIImageView.init(image: image)
+//        self.imageView = imageView
+//        self.scrollView.addSubview(self.imageView!)
+//        self.scrollView.contentSize = self.imageView!.bounds.size
+//        self.scrollView.contentOffset = CGPoint(x: -(self.scrollView.bounds.size.width - self.imageView!.bounds.size.width)/2.0, y: -(self.scrollView.bounds.size.height - self.imageView!.bounds.size.height)/2.0)
+//        NSLog("scrollview \(self.scrollView.contentSize)")
     }
     
    
-    func viewForZooming(in scrollView:UIScrollView) -> UIView? {
-        return self.imageView!
-    }
+//    func viewForZooming(in scrollView:UIScrollView) -> UIView? {
+//        return self.imageView!
+//    }
     
 
 }
